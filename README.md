@@ -2,7 +2,7 @@
 
 - The plan is to study 50 hours before 8-1-2025
 
-### Data Structures => 8 hours
+### Data Structures => 8 hours [.5]
 
 ### Algorithms => 8 hours
 
