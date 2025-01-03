@@ -24,4 +24,6 @@
 
 ### Dev Tools => 2 hours
 
-## Total = 8+8+5+3+3+3+2+3+6+2+2= 45 hours + 5 review =50 hours
+### MVC - MVI - MVVM - MVVI - MVP => 5 hours
+
+## Total = 8+8+5+3+3+3+2+3+6+2+2+5 =50 hours
