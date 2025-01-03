@@ -1,16 +1,27 @@
 # amk
 
-A new Flutter project.
+- The plan is to study 50 hours before 8-1-2025
 
-## Getting Started
+### Data Structures => 8 hours
 
-This project is a starting point for a Flutter application.
+### Algorithms => 8 hours
 
-A few resources to get you started if this is your first Flutter project:
+### Flutter Live Coding Examples => 5 hours
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Flutter Local Databases => 3 hours
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Testing => 3 hours
+
+### Riverpod => 3 hours
+
+### MCQ => 2 hours
+
+### Interview Questions => 3 hours
+
+### Design Patterns => 6 hours
+
+### Debug => 2 hours
+
+### Dev Tools => 2 hours
+
+## Total = 8+8+5+3+3+3+2+3+6+2+2= 45 hours + 5 review =50 hours
