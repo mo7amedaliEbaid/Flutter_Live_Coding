@@ -2,11 +2,13 @@
 
 - The plan is to study 50 hours before 8-1-2025
 
-### Data Structures => 8 hours [.5]
+### Data Structures => 8 hours [.75]
 
 ### Algorithms => 8 hours
 
 ### Flutter Live Coding Examples => 5 hours
+
+[.5+1]
 
 ### Flutter Local Databases => 3 hours
 

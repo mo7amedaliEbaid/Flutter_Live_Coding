@@ -50,7 +50,6 @@ int fibIterative(int n) {
   int current = 0;
   for (var i = 2; i <= n; i++) {
     current = prev + prev1;
-
     prev = prev1;
     prev1 = current;
   }
