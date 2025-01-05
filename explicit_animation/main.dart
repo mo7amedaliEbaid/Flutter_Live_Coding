@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 main() {
-  runApp(const ExplicitAnimationExample());
+  runApp(
+    const MaterialApp(
+      home: ExplicitAnimationExample(),
+    ),
+  );
 }
 
 class ExplicitAnimationExample extends StatefulWidget {
@@ -19,16 +23,50 @@ class _ExplicitAnimationExampleState extends State<ExplicitAnimationExample>
 
   @override
   void initState() {
-    controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
 
-    sizeAnimation = Tween<double>(begin: 100, end: 300)
-        .animate(CurvedAnimation(parent: controller, curve: Curves.easeInOut));
+    sizeAnimation = Tween<double>(begin: 100, end: 300).animate(
+      CurvedAnimation(parent: controller, curve: Curves.easeInOut),
+    );
+    controller.repeat(reverse: true);
     super.initState();
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: AnimatedBuilder(
+          animation: sizeAnimation,
+          builder: (context, child) {
+            return Container(
+              width: sizeAnimation.value,
+              height: sizeAnimation.value,
+              color: Colors.blue,
+              child: child,
+            );
+          },
+          child: const Center(
+            child: Text(
+              "Flutter",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
