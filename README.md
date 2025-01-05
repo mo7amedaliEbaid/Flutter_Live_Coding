@@ -22,6 +22,8 @@
 
 ### Design Patterns => 6 hours
 
+[1]
+
 ### Debug => 2 hours
 
 ### Dev Tools => 2 hours

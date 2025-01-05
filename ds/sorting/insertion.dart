@@ -1,4 +1,5 @@
-// Insertion sort is a simple and intuitive sorting algorithm that works by building the sorted portion of an array one element at a time. It operates similarly to how you might sort playing cards in your hands. Here's how it works:
+// Insertion sort is a simple and intuitive sorting algorithm that works by building the sorted portion of an array one element at a time.
+// It operates similarly to how you might sort playing cards in your hands. Here's how it works:
 //
 // ### Algorithm Steps:
 //
@@ -59,22 +60,14 @@
 // Imagine the array as two sections: sorted and unsorted. The sorted portion grows by picking and placing elements from the unsorted portion in the correct position.
 
 List<int> insertionSort(List<int> nums) {
-  print("nums=$nums");
   for (var i = 1; i < nums.length; i++) {
-    print("nums[i]=${nums[i]}");
     int curr = nums[i];
-    print("curr=$curr");
     int j = i - 1;
-    print("j=$j");
     while (j >= 0 && curr < nums[j]) {
-      print("nums[j + 1]=${nums[j + 1]}");
-      print("nums[j]=${nums[j]}");
       nums[j + 1] = nums[j];
       j--;
-      print("j=$j");
     }
     nums[j + 1] = curr;
-    print("nums=$nums");
   }
   return nums;
 }
