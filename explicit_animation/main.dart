@@ -59,10 +59,9 @@ class _ExplicitAnimationExampleState extends State<ExplicitAnimationExample>
             child: Text(
               "Flutter",
               style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20
-              ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
             ),
           ),
         ),
