@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 main() {
-  runApp(
-    const MaterialApp(
-      home: ExplicitAnimationExample(),
-    ),
-  );
+  runApp(const MaterialApp(
+    home: ExplicitAnimationExample(),
+  ));
 }
 
 class ExplicitAnimationExample extends StatefulWidget {
@@ -19,19 +17,19 @@ class ExplicitAnimationExample extends StatefulWidget {
 class _ExplicitAnimationExampleState extends State<ExplicitAnimationExample>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
-  late Animation<double> sizeAnimation;
+  late Animation<double> animation;
 
   @override
   void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
 
-    sizeAnimation = Tween<double>(begin: 100, end: 300).animate(
+    animation = Tween<double>(begin: 100, end: 300).animate(
       CurvedAnimation(parent: controller, curve: Curves.easeInOut),
     );
+
     controller.repeat(reverse: true);
+
     super.initState();
   }
 
@@ -44,25 +42,22 @@ class _ExplicitAnimationExampleState extends State<ExplicitAnimationExample>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Explicit Animation Example"),
+      ),
       body: Center(
         child: AnimatedBuilder(
-          animation: sizeAnimation,
+          animation: animation,
           builder: (context, child) {
             return Container(
-              width: sizeAnimation.value,
-              height: sizeAnimation.value,
+              width: animation.value,
+              height: animation.value,
               color: Colors.blue,
               child: child,
             );
           },
           child: const Center(
-            child: Text(
-              "Flutter",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
-            ),
+            child: Text("Flutter"),
           ),
         ),
       ),
