@@ -11,6 +11,7 @@ abstract class Animal {
   void speak();
 }
 
+// 2- create concrete products
 class Cat extends Animal {
   @override
   void speak() {
@@ -25,11 +26,12 @@ class Dog extends Animal {
   }
 }
 
-// 2- create abstract creator(factory)
+// 3- create abstract creator(factory)
 abstract class AnimalFactory {
   Animal createAnimal();
 }
 
+// 4- create concrete creators(factory)
 class DogFactory extends AnimalFactory {
   @override
   Animal createAnimal() {
@@ -44,6 +46,7 @@ class CatFactory extends AnimalFactory {
   }
 }
 
+// 5- client
 main() {
   AnimalFactory dogFactory = DogFactory();
   Animal dog = dogFactory.createAnimal();
