@@ -1,3 +1,86 @@
+// didUpdateWidget
+
+import 'package:flutter/material.dart';
+
+main() {
+  runApp(
+    const MaterialApp(
+      home: ParentWidget(),
+    ),
+  );
+}
+
+class ParentWidget extends StatefulWidget {
+  const ParentWidget({super.key});
+
+  @override
+  State<ParentWidget> createState() => _ParentWidgetState();
+}
+
+class _ParentWidgetState extends State<ParentWidget> {
+  Color _color = Colors.blue;
+
+  _toggleColor() {
+    setState(() {
+      _color = _color == Colors.blue ? Colors.red : Colors.blue;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ChildWidget(
+          color: _color,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _toggleColor,
+      ),
+    );
+  }
+}
+
+class ChildWidget extends StatefulWidget {
+  const ChildWidget({super.key, required this.color});
+
+  final Color color;
+
+  @override
+  State<ChildWidget> createState() => _ChildWidgetState();
+}
+
+class _ChildWidgetState extends State<ChildWidget> {
+  Color? color;
+
+  @override
+  void initState() {
+    color = widget.color;
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant ChildWidget oldWidget) {
+    if (oldWidget.color != widget.color) {
+      setState(() {
+        color = widget.color;
+      });
+    }
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 200,
+      color: color,
+    );
+  }
+}
+
+/*
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -93,3 +176,4 @@ class _StatefulChildWidgetState extends State<StatefulChildWidget> {
     );
   }
 }
+*/
