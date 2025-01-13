@@ -22,6 +22,9 @@ class _NoteListScreenState extends State<NoteListScreen> {
     super.initState();
   }
 
+
+
+
   _fetchNotes() async {
     final notes = await db.getNotes();
     setState(() {

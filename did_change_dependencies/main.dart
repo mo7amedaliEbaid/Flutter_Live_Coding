@@ -40,6 +40,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Text(text.toString()),

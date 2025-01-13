@@ -1,6 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CounterProvider extends InheritedWidget {
+  final VoidCallback incrementFunction;
+  final int counter;
+
+  const CounterProvider({
+    super.key,
+    required this.incrementFunction,
+    required this.counter,
+    required super.child,
+  });
+
+  static CounterProvider? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<CounterProvider>();
+  }
+
+  @override
+  bool updateShouldNotify(CounterProvider oldWidget) {
+    return oldWidget.counter != counter;
+  }
+}
+
+/*class CounterProvider extends InheritedWidget {
   const CounterProvider({
     super.key,
     required this.counter,
@@ -19,7 +40,7 @@ class CounterProvider extends InheritedWidget {
   bool updateShouldNotify(CounterProvider oldWidget) {
     return oldWidget.counter != counter;
   }
-}
+}*/
 
 main() {
   runApp(MaterialApp(
@@ -55,9 +76,14 @@ class _CounterScreenState extends State<CounterScreen> {
   }
 }
 
-class DisplayCounterWidget extends StatelessWidget {
+class DisplayCounterWidget extends StatefulWidget {
   const DisplayCounterWidget({super.key});
 
+  @override
+  State<DisplayCounterWidget> createState() => _DisplayCounterWidgetState();
+}
+
+class _DisplayCounterWidgetState extends State<DisplayCounterWidget> {
   @override
   Widget build(BuildContext context) {
     final provider = CounterProvider.of(context);
