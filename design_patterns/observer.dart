@@ -11,3 +11,42 @@
 // Observer: Defines an interface for objects that should be notified of changes in the subject.
 // Concrete Subject: Implements the subject and maintains its state.
 // Concrete Observer: Implements the observer and updates itself based on notifications.
+
+abstract class Observer {
+  void update(String news);
+}
+
+abstract class Subject {
+  void addObserver(Observer observer);
+
+  void removeObserver(Observer observer);
+
+  void notifyObservers();
+}
+
+class NewsAgency implements Subject {
+  final List<Observer> _observers = [];
+  String _latestNews = '';
+
+  void publishNews(String news) {
+    _latestNews = news;
+    notifyObservers();
+  }
+
+  @override
+  void addObserver(Observer observer) {
+    _observers.add(observer);
+  }
+
+  @override
+  void notifyObservers() {
+    for (var observer in _observers) {
+      observer.update(_latestNews);
+    }
+  }
+
+  @override
+  void removeObserver(Observer observer) {
+    _observers.remove(observer);
+  }
+}
