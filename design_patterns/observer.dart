@@ -12,10 +12,12 @@
 // Concrete Subject: Implements the subject and maintains its state.
 // Concrete Observer: Implements the observer and updates itself based on notifications.
 
+// Observer: Defines an interface for objects that should be notified of changes in the subject.
 abstract class Observer {
   void update(String news);
 }
 
+// Subject: Maintains a list of observers and provides methods to add, remove, and notify them.
 abstract class Subject {
   void addObserver(Observer observer);
 
@@ -24,6 +26,8 @@ abstract class Subject {
   void notifyObservers();
 }
 
+
+// Concrete Subject: Implements the subject and maintains its state.
 class NewsAgency implements Subject {
   final List<Observer> _observers = [];
   String _latestNews = '';
@@ -49,4 +53,41 @@ class NewsAgency implements Subject {
   void removeObserver(Observer observer) {
     _observers.remove(observer);
   }
+}
+
+
+// Concrete Observer: Implements the observer and updates itself based on notifications.
+
+class Subscriber implements Observer {
+  String name;
+
+  Subscriber(this.name);
+
+  @override
+  void update(String news) {
+    print("$name received news update : $news");
+  }
+}
+
+// Client Code
+void main() {
+  // Create the subject
+  NewsAgency newsAgency = NewsAgency();
+
+  // Create observers
+  Subscriber subscriber1 = Subscriber("Alice");
+  Subscriber subscriber2 = Subscriber("Bob");
+
+  // Register observers
+  newsAgency.addObserver(subscriber1);
+  newsAgency.addObserver(subscriber2);
+
+  // Publish news
+  newsAgency.publishNews("Breaking: New Dart version released!");
+
+  print("\n--- After some time ---\n");
+
+  // Remove an observer and publish more news
+  newsAgency.removeObserver(subscriber1);
+  newsAgency.publishNews("Update: Dart 3.1 is now available!");
 }
